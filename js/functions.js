@@ -1,28 +1,20 @@
-function checkStringLength(string, validLength) {
-  return string.length <= validLength;
+function timeSplit(time) {
+  const [hours, minutes] = time.split(':').map(Number);
+
+  return hours * 60 + minutes;
 }
 
-function isPalindrome(string) {
-  let cleanedString = string.replaceAll(' ', '').toUpperCase();
-  let reversedString = '';
-  for (let i = cleanedString.length - 1; i >= 0; i--) {
-    reversedString += cleanedString[i];
-  }
+function timeValidator(workdayStart, workdayEnd, meetingStart, duration) {
+  const workStartMin = timeSplit(workdayStart);
+  const workEndMin = timeSplit(workdayEnd);
+  const meetingStartMin = timeSplit(meetingStart);
+  const meetingEndMin = meetingStartMin + duration;
 
-  return cleanedString === reversedString;
+  return meetingStartMin >= workStartMin && meetingEndMin <= workEndMin;
 }
 
-function extractNumbers(string) {
-  string = string.toString();
-  let numbers = '';
-
-  for (let i = 0; i < string.length; i++) {
-    let char = parseInt(string[i]);
-
-    if (!Number.isNaN(char)) {
-      numbers += char;
-    }
-  }
-
-  return numbers ? Number(numbers) : NaN;
-}
+timeValidator('08:00', '17:30', '14:00', 90); // true
+timeValidator('8:0', '10:0', '8:0', 120);     // true
+timeValidator('08:00', '14:30', '14:00', 90); // false
+timeValidator('14:00', '17:30', '08:0', 90);  // false
+timeValidator('8:00', '17:30', '08:00', 900); // false
