@@ -1,12 +1,7 @@
-import {
-  NAMES,
-  MESSAGES,
-  COMMENT_AVATAR_RULE,
-  COMMENT_ID_RULE,
-} from './data.js';
+import { NAMES, MESSAGES, COMMENT_AVATAR_RULE, COMMENT_ID_RULE } from './data.js';
 import { getRandomInteger, getRandomArrayElement, createIdGenerator } from './utils.js';
 
-export const createComments = (count) => {
+const createComments = (count) => {
   const nextCommentId = createIdGenerator(COMMENT_ID_RULE.MIN);
 
   return Array.from({ length: count }, () => ({
@@ -16,3 +11,5 @@ export const createComments = (count) => {
     name: getRandomArrayElement(NAMES),
   }));
 };
+
+export { createComments };

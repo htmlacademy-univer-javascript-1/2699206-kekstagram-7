@@ -1,9 +1,9 @@
-export const NAMES = [
+const NAMES = [
   'Александр', 'Мария', 'Игорь', 'Константин', 'Елена',
   'Анна', 'Пётр', 'Галина', 'Клим', 'Екатерина'
 ];
 
-export const MESSAGES = [
+const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -12,7 +12,7 @@ export const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
 
-export const DESCRIPTIONS = [
+const DESCRIPTIONS = [
   'Обычный день и один кадр из него.',
   'Свет, тень и немного пространства.',
   'Просто момент из повседневности.',
@@ -25,8 +25,11 @@ export const DESCRIPTIONS = [
   'Небольшая зарисовка без повода.'
 ];
 
-export const PHOTO_RULE = { MIN: 1, MAX: 25 };
-export const LIKES_RULE = { MIN: 15, MAX: 200 };
-export const COMMENTS_COUNT_RULE = { MIN: 0, MAX: 30 };
-export const COMMENT_ID_RULE = { MIN: 0, MAX: 1000 };
-export const COMMENT_AVATAR_RULE = { MIN: 1, MAX: 6 };
+const PHOTO_RULE = { MIN: 1, MAX: 25 };
+const LIKES_RULE = { MIN: 15, MAX: 200 };
+const COMMENTS_COUNT_RULE = { MIN: 0, MAX: 30 };
+const COMMENT_ID_RULE = { MIN: 0, MAX: 1000 };
+const COMMENT_AVATAR_RULE = { MIN: 1, MAX: 6 };
+
+export { NAMES, MESSAGES, DESCRIPTIONS };
+export { PHOTO_RULE, LIKES_RULE, COMMENTS_COUNT_RULE, COMMENT_ID_RULE, COMMENT_AVATAR_RULE };
