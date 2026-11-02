@@ -1,9 +1,4 @@
-import {
-  DESCRIPTIONS,
-  PHOTO_RULE,
-  LIKES_RULE,
-  COMMENTS_COUNT_RULE,
-} from './data.js';
+import { DESCRIPTIONS, PHOTO_RULE, LIKES_RULE, COMMENTS_COUNT_RULE } from './data.js';
 import { getRandomInteger, getRandomArrayElement, createIdGenerator } from './utils.js';
 import { createComments } from './comment.js';
 
@@ -17,7 +12,9 @@ const createPhoto = (id) => ({
   ),
 });
 
-export const generatePhotos = (count = PHOTO_RULE.MAX) => {
+const generatePhotos = (count = PHOTO_RULE.MAX) => {
   const nextPhotoId = createIdGenerator(PHOTO_RULE.MIN);
   return Array.from({ length: count }, () => createPhoto(nextPhotoId()));
 };
+
+export { generatePhotos };
